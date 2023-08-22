@@ -1,7 +1,7 @@
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    // dimensions and position editinfg will be required
+    // dimensions and position editing will be required
     this.left = 1000;
     this.top = Math.floor(Math.random() * 300) + 70; // using width of game area which is 300;
     this.width = 100;

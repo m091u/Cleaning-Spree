@@ -5,15 +5,16 @@ class Game {
     this.gameEndScreen = document.querySelector("#game-end");
     this.player = new Player(
       this.gameScreen,
-      30,
-      900,
-      120,
-      120,
+      100,
+      200,
+      90,
+      90,
       "../images/inflatable-boat.png"
     );
 
-    this.height = 600;
-    this.width = 500;
+    // comment out once there is a game screen
+    this.height = 300;
+    this.width = 1800;
     this.obstacles = [];
     this.debris = [];
     this.score = 0;
@@ -41,9 +42,9 @@ class Game {
     window.requestAnimationFrame(() => this.gameLoop());
   }
 
-  //Controls character movement, object ineraction & scoring system
+  //Controls player movement, object ineraction & scoring system
   update() {
-    this.character.move();
+    this.player.move();
 
     // Create a new obstacle & debris based on a random probability
     // when there is no other obstacles on the screen
