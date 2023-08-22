@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spree Clean-up</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <main>
+    <!-- to add audio if time -->
+    <!-- <audio id="music" loop src="" autoplay></audio></audio>
+    <button id="unmute-button"><img src=""></button> -->
+
+     <!-- #game-intro is initially shown on the game start screen -->
+     <div class ="intro-page" id="game-intro">
+        <!-- <img src="./images/berlin-skyline.jpeg" alt="Berlin-skyline" class="intro-img" /> -->
+        <br />
+        <div class = "content">
+            <p class ="story">You got yourself a fancy new inflatable boat and are ready to sail into the Berlin sunset. <br>
+                But like a true Berliner you decided to first make the Spree look a little better.
+                <br>
+                Collect as much debris as possible and keep away from sharp objects!</p>
+            <button id="start-button">Start Game</button>
+            <p>Use the up and down arrows to control the boat.</p>
+            <img src="./images/arrow-keys.png" alt="Arrows logo" class="arrows" />
+        </div>
+    </div>
+
+    <div>
+
+    <!-- #game-screen is initially hidden using CSS style display: none -->
+    </div>
+        <div>
+            <h2>Clean-up Progress</h2>
+            <!-- Initial  -->
+            <p>Score: <span id="score">0</span></p> 
+            <p>Lives: <span id="lives">3</span></p>
+        </div>
+
+        <div id="game-screen"></div>
+    </div>
+
+    <!-- #game-end is initially hidden using CSS style display: none -->
+    <div id="game-end">
+        <img src="" alt="" class="" />
+        <h1>Game Over</h1>
+        <h2>Placeholder for stats</h2>
+        <br />
+        <button id="restart-button">Give it another go!</button>
+    </div>
+
+    </main>
+        <script type="text/javascript" src="src/obstacles.js"></script>
+        <script type="text/javascript" src="src/player.js"></script>
+        <script type="text/javascript" src="src/game.js"></script>
+        <script type="text/javascript" src="src/script.js"></script>
+
+    </body>
+</html>
