@@ -56,25 +56,21 @@ body button {
 }
 
 .game-container {
-  display: flex;
-  /* justify-content: center; */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100vh;
-  /* padding: 20px 0px; */
-  /* justify-content: center; */
   background-image: url(../images/Berlin-riverside.png);
-  background-size: contain;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  color: darkgreen;
+  font-size: 1.5em;
 }
 
 #game-screen {
-  display: none;
   position: relative;
-  /* padding: 20px 0px; */
   overflow: hidden;
   background-image: url(../images/river-v2.png);
   background-size: cover;
@@ -86,7 +82,7 @@ body button {
     background-position: 0 0;
   }
   to {
-    background-position: 1000px 0;
+    background-position: -1000px 0;
   }
 }
 

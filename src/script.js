@@ -10,27 +10,33 @@ window.onload = function () {
 
   function startGame() {
     console.log("start game");
-    // game = new Game(); // added
+
     game.start(); // added
   }
 
-  //## Iteration 5: Handle Keyboard Input
+  // Handle Keyboard Input
   window.addEventListener("keydown", (event) => {
     // console.log(event.key);
     event.preventDefault();
 
     switch (event.key) {
       case "ArrowUp":
-        game.player.directionY = -2;
+        game.player.directionY = -5; //move up
         break;
       case "ArrowDown":
-        game.player.directionY = 2;
+        game.player.directionY = 5; //move down
         break;
     }
+
+    // Reset direction property when arrow key is released
+    window.addEventListener("keyup", (event) => {
+      if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+        game.player.directionY = 0; // Stop movement
+      }
+    });
   });
 
-  // ## Iteration 8: End Game Screen
-
+  // End Game Screen
   // Add an event listener to the restart button & Call the restartGame function when the button is clicked
   restartButton.addEventListener("click", function () {
     restartGame();

@@ -1,27 +1,31 @@
 class Game {
   constructor() {
     this.startScreen = document.querySelector("#game-intro");
+    this.gameContainer = document.querySelector("#game-container");
     this.gameScreen = document.querySelector("#game-screen");
     this.gameEndScreen = document.querySelector("#game-end");
+
     this.player = new Player(
       this.gameScreen,
+      140,
+      130,
       100,
-      200,
-      90,
-      90,
+      100,
       "../images/inflatable-boat.png"
     );
 
-    // comment out once there is a game screen
-    this.height = 300;
-    this.width = 1800;
+    // game screen
+    this.height = 380;
+    this.width = 1500; // length of the river
     this.obstacles = [];
     this.debris = [];
     this.score = 0;
-    this.lives = 2;
+    this.lives = 4;
     this.scoreElement = document.querySelector("#score"); //added for score & lives
     this.livesElement = document.querySelector("#lives"); //added for score & lives
-    this.gameIsOver = false;
+    this.gameIsOver = false; // not in EB
+    this.obstacleGenerationInterval = 1100; // extra EB
+    this.debrisGenerationInterval = 1200; // extra EB
   }
 
   // Starts game loop
@@ -30,6 +34,11 @@ class Game {
     this.gameScreen.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
+    this.gameContainer.style.display = "flex";
+
+    this.startObstacleGeneration();
+    this.startDebrisGeneration();
+
     this.gameLoop();
   }
 
@@ -48,46 +57,39 @@ class Game {
 
     // Create a new obstacle & debris based on a random probability
     // when there is no other obstacles on the screen
-    if (Math.random() > 0.98 && this.obstacles.length < 1) {
-      this.obstacles.push(new Obstacle(this.gameScreen));
-    }
-
-    if (Math.random() > 0.98 && this.debris.length < 1) {
-      this.debris.push(new Debris(this.gameScreen));
-    }
-
-    // make obstacle move
-    if (this.obstacles.length) {
-      const obstacle = this.obstacles[0];
+  
+    // Update obstacles
+    for (let i = this.obstacles.length - 1; i >= 0; i--) {
+      const obstacle = this.obstacles[i];
       obstacle.move();
 
-      // avoid colision
+      // Avoid collision and handle game logic as before
       if (obstacle.top > this.height) {
-        this.score++;
+        this.score += 10;
         console.log("score:", this.score);
         obstacle.element.remove();
-        this.obstacles.splice(0, 1);
+        this.obstacles.splice(i, 1);
       }
 
-      if (this.obstacles.length && this.player.didColide(obstacle)) {
+      if (this.player.didColide(obstacle)) {
         this.lives--;
         console.log("lives:", this.lives);
         obstacle.element.remove();
-        this.obstacles.splice(0, 1);
+        this.obstacles.splice(i, 1);
       }
     }
 
-    // make debris move
-    if (this.debris.length) {
-      const Debris = this.debris[0];
-      Debris.move();
+    // Update debris
+    for (let i = this.debris.length - 1; i >= 0; i--) {
+      const debrisPiece = this.debris[i];
+      debrisPiece.move();
 
-      //collect debris
-      if (this.debris.length && this.player.didColide(debris)) {
+      // Collect points for collection (collision with debris)
+      if (this.player.didColide(debrisPiece)) {
         this.score += 20;
         console.log("score:", this.score);
-        Debris.element.remove();
-        this.debris.splice(0, 1);
+        debrisPiece.element.remove();
+        this.debris.splice(i, 1);
       }
     }
 
@@ -99,18 +101,39 @@ class Game {
     }
   }
 
-    // Added for score & lives tracking
-    updateScoreAndLives() {
-      this.scoreElement.textContent = this.score;
-      this.livesElement.textContent = this.lives;
-    }
-  
-    endGame() {
-      this.player.element.remove();
-      this.obstacles.forEach((obstacle) => obstacle.element.remove());
-      this.debris.forEach((debris) => Debris.element.remove());
-      this.gameIsOver = true;
-      this.gameScreen.style.display = "none";
-      this.gameEndScreen.style.display = "block";
-    }
+  //Sets up interval with callback function creating a new obstacle and pushing to obstacle array
+  startObstacleGeneration() {
+    this.obstacleGenerationInterval = setInterval(() => {
+      const obstacle = new Obstacle(this.gameScreen);
+      this.obstacles.push(obstacle);
+    }, this.obstacleGenerationInterval);
+  }
+
+  startDebrisGeneration() {
+    this.debrisGenerationInterval = setInterval(() => {
+      const debrisPiece = new Debris(this.gameScreen);
+      this.debris.push(debrisPiece);
+    }, this.debrisGenerationInterval);
+  }
+
+  // Added for score & lives tracking
+  updateScoreAndLives() {
+    this.scoreElement.textContent = this.score;
+    this.livesElement.textContent = this.lives;
+  }
+
+  endGame() {  
+    // Clear obstacle and debris generation intervals
+    clearInterval(this.obstacleGenerationInterval);
+    clearInterval(this.debrisGenerationInterval);
+
+    this.player.element.remove();
+    this.obstacles.forEach((obstacle) => obstacle.element.remove());
+    this.debris.forEach((debrisPiece) => debrisPiece.element.remove());
+
+    this.gameIsOver = true;
+
+    this.gameScreen.style.display = "none";
+    this.gameEndScreen.style.display = "block";
+  }
 }
