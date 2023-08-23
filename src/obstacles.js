@@ -52,7 +52,7 @@ class Debris {
     //Creates array of possible debris elements, then randomises
     const randomDebris = [
       "../images/Debris-plastic-bag.png",
-      "../images/Debris-paper-coffee-cup.jpeg",
+      "../images/Debris-paper-coffee-cup.png",
       "../images/Debris-water-bottle.png",
     ];
     const randomChoice = Math.floor(Math.random() * randomDebris.length);

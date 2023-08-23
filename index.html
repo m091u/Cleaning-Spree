@@ -19,12 +19,12 @@
 
         <div class="content">
           <p class="story">
-            You got yourself a fancy new inflatable boat and are ready to sail
-            into the Berlin sunset. <br />
+            You got yourself a cool new inflatable boat and are ready to sail
+            into the Berlin sunset. &#9973 <br>
             But like a true Berliner you decided to first make the Spree look a
             little better.
-            <br />
-            Collect as much debris as possible and keep away from sharp objects!
+            <br>
+            Collect as much debris as possible and keep away from sharp objects and angry birds!
           </p>
           <button id="start-button">Start Game</button>
           <p>Use the up and down arrows to control the boat.</p>
@@ -34,8 +34,8 @@
 
       <div class="game-container" id="game-container">
         <!-- #game-screen is initially hidden using CSS style display: none -->
-        <div>
-          <h2>Clean-up Progress</h2>
+        <div class="stats" id="stats">
+          <h2>Stats</h2>
           <!-- Initial  -->
           <p>Score: <span id="score">0</span></p>
           <p>Lives: <span id="lives">3</span></p>
@@ -46,11 +46,14 @@
 
       <!-- #game-end is initially hidden using CSS style display: none -->
       <div id="game-end">
-        <img src="" alt="" class="" />
-        <h1>Game Over</h1>
-        <h2>Placeholder for stats</h2>
-        <br />
-        <button id="restart-button">Give it another go!</button>
+        <div class="end-content">
+            <h1>Mission completed!</h1>
+            <h3>Well done! <span class="emoji">&#127942</span><br> Sorry for the boat, but it was all for a good cause!</h3>
+            <br />
+            <button id="restart-button">Give it another go!</button>
+            <p><strong>Pollution Impact </strong> <br>
+                Urban areas generate a large amount of plastic waste, and much of it ends up in rivers. <br> Single-use plastics like bottles, bags, and packaging are commonly discarded irresponsibly, finding their way into waterways. <br> The presence of plastic debris in rivers not only harms aquatic species but can also contribute to the breakdown of plastic into microplastics, which have widespread ecological impacts.</p>
+        </div>
       </div>
     </main>
     <script type="text/javascript" src="src/obstacles.js"></script>

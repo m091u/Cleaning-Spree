@@ -1,9 +1,10 @@
 class Game {
   constructor() {
     this.startScreen = document.querySelector("#game-intro");
-    this.gameContainer = document.querySelector("#game-container");
-    this.gameScreen = document.querySelector("#game-screen");
+    this.gameContainer = document.querySelector("#game-container");   // added to set styling to container with none display
+    this.gameScreen = document.querySelector("#game-screen");   
     this.gameEndScreen = document.querySelector("#game-end");
+  
 
     this.player = new Player(
       this.gameScreen,
@@ -11,7 +12,7 @@ class Game {
       130,
       100,
       100,
-      "../images/inflatable-boat.png"
+      "../images/Player-bear-boat.png"
     );
 
     // game screen
@@ -23,9 +24,9 @@ class Game {
     this.lives = 4;
     this.scoreElement = document.querySelector("#score"); //added for score & lives
     this.livesElement = document.querySelector("#lives"); //added for score & lives
-    this.gameIsOver = false; // not in EB
-    this.obstacleGenerationInterval = 1100; // extra EB
-    this.debrisGenerationInterval = 1200; // extra EB
+    this.gameIsOver = false; 
+    this.obstacleGenerationInterval = 1100; 
+    this.debrisGenerationInterval = 1200; 
   }
 
   // Starts game loop
@@ -34,12 +35,12 @@ class Game {
     this.gameScreen.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
-    this.gameContainer.style.display = "flex";
-
-    this.startObstacleGeneration();
-    this.startDebrisGeneration();
+    this.gameContainer.style.display = "flex";  //added to format game view to display both game screen & stats
 
     this.gameLoop();
+    this.startObstacleGeneration();
+    this.startDebrisGeneration();
+  
   }
 
   gameLoop() {
@@ -54,9 +55,6 @@ class Game {
   //Controls player movement, object ineraction & scoring system
   update() {
     this.player.move();
-
-    // Create a new obstacle & debris based on a random probability
-    // when there is no other obstacles on the screen
   
     // Update obstacles
     for (let i = this.obstacles.length - 1; i >= 0; i--) {

@@ -8,40 +8,42 @@ body {
 
 body button {
   font-size: 30px;
-  background-color: #1da49d;
+  background-color: #2aa8a2;
   color: #fff;
   padding: 20px 40px;
+  margin-top: 10px;
   border: 0;
   box-shadow: 0;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
 .intro-page {
-  padding: 20px 0px;
   overflow: hidden;
   position: relative;
   background-image: url(../images/Berlin-riverside.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  align-content: center;
+  /* align-content: center; */
   height: 100vh;
   display: grid;
   place-items: center;
-  /* animation: slide 5s linear infinite; */
 }
 
 .content {
   background-color: hsl(34, 78%, 91%, 0.8);
-  width: 50%;
+  width: 60%;
   padding: 5px;
   color: darkgreen;
   font-size: 30px;
+  padding: 20px;
 }
 
 .arrows {
-  width: 2em;
+  width: 6%;
+  height: 8%;
+  padding-top: 2%;
 }
 
 .start-button {
@@ -55,8 +57,13 @@ body button {
   margin-bottom: 20px;
 }
 
+/* adding section resulted in changes to the game screen with river moving at the top of screen */
+/* .stats { 
+  display: none;} */
+
+  /* display none added to container vs car game to game screen */
 .game-container {
-  display: none;
+  display: none;   
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -65,8 +72,8 @@ body button {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: darkgreen;
-  font-size: 1.5em;
+  color: rgb(4, 88, 4);
+  font-size: 30px;
 }
 
 #game-screen {
@@ -88,4 +95,40 @@ body button {
 
 #game-end {
   display: none;
+  font-size: 30px;
+  height: 100vh;
+  color: darkgreen;
+  position: relative;
+  background-image: url(../images/Berlin-riverside.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+}
+
+.end-content {
+  background-color: hsl(34, 78%, 91%, 0.8);
+  width: 60%;
+  padding: 20px;
+  color: darkgreen;
+  font-size: 25px;
+  line-height: 1.8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.emoji {
+    display: inline-block;
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
