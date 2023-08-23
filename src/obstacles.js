@@ -1,10 +1,9 @@
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    // dimensions and position editing will be required
+    // dimensions and position 
     this.left = 1100;
-    this.top = Math.floor(Math.random() * 250 + 70); 
-    // this.top = Math.floor(Math.random() * 0 + 70);; 
+    this.top = Math.floor(Math.random() * 370);
    
     this.width = 70;
     this.height = 70;
@@ -12,7 +11,7 @@ class Obstacle {
     this.element = document.createElement("img");
     const randomObstacle = [
       "../images/Obstacle-swan.png",
-      "../images/Obstacle-Bottle.png",
+      "../images/Obstacle-duckpng.png",
     ];
     const randomChoice = Math.floor(Math.random() * randomObstacle.length);
     this.element.src = `${randomObstacle[randomChoice]}`;
@@ -38,13 +37,12 @@ class Obstacle {
   }
 }
 
-
 class Debris {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
 
     this.left = 1200;
-    this.top = Math.floor(Math.random() * 250 + 70); 
+    this.top = Math.floor(Math.random() * 370);
     this.width = 80;
     this.height = 80;
     this.element = document.createElement("img");

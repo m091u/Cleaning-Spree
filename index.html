@@ -15,16 +15,16 @@
 
       <!-- #game-intro is initially shown on the game start screen -->
       <div class="intro-page" id="game-intro">
-        <!-- <img src="./images/berlin-skyline.jpeg" alt="Berlin-skyline" class="intro-img" /> -->
 
         <div class="content">
+          <h2>Game Title</h2>
           <p class="story">
             You got yourself a cool new inflatable boat and are ready to sail
-            into the Berlin sunset. &#9973 <br>
+            into the Berlin sunset. <span class="emoji">&#9973 </span><br>
             But like a true Berliner you decided to first make the Spree look a
             little better.
             <br>
-            Collect as much debris as possible and keep away from sharp objects and angry birds!
+            Collect as much debris as possible and make sure you don't upset the birds. <span class ="emoji">&#129414; 	&#129442;</span>
           </p>
           <button id="start-button">Start Game</button>
           <p>Use the up and down arrows to control the boat.</p>
@@ -46,9 +46,10 @@
 
       <!-- #game-end is initially hidden using CSS style display: none -->
       <div id="game-end">
+        <audio id="gameEndSound" src="" preload="auto"></audio>
         <div class="end-content">
             <h1>Mission completed!</h1>
-            <h3>Well done! <span class="emoji">&#127942</span><br> Sorry for the boat, but it was all for a good cause!</h3>
+            <h3>Well done! <span class="cup">&#127942</span> <br> Too bad a few birds got their feathers ruffled.</h3>
             <br />
             <button id="restart-button">Give it another go!</button>
             <p><strong>Pollution Impact </strong> <br>

@@ -1,17 +1,17 @@
 class Game {
   constructor() {
     this.startScreen = document.querySelector("#game-intro");
-    this.gameContainer = document.querySelector("#game-container");   // added to set styling to container with none display
-    this.gameScreen = document.querySelector("#game-screen");   
+    this.gameContainer = document.querySelector("#game-container"); // added to set styling to container with none display
+    this.gameScreen = document.querySelector("#game-screen");
     this.gameEndScreen = document.querySelector("#game-end");
-  
+    this.gameStats = document.querySelector("#stats")
 
     this.player = new Player(
       this.gameScreen,
-      140,
       130,
-      100,
-      100,
+      170,
+      90,
+      90,
       "../images/Player-bear-boat.png"
     );
 
@@ -24,9 +24,9 @@ class Game {
     this.lives = 4;
     this.scoreElement = document.querySelector("#score"); //added for score & lives
     this.livesElement = document.querySelector("#lives"); //added for score & lives
-    this.gameIsOver = false; 
-    this.obstacleGenerationInterval = 1100; 
-    this.debrisGenerationInterval = 1200; 
+    this.gameIsOver = false;
+    this.obstacleGenerationInterval = 1200;
+    this.debrisGenerationInterval = 1300;
   }
 
   // Starts game loop
@@ -35,12 +35,11 @@ class Game {
     this.gameScreen.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
-    this.gameContainer.style.display = "flex";  //added to format game view to display both game screen & stats
+    this.gameContainer.style.display = "flex"; //added to format game view to display both game screen & stats
 
     this.gameLoop();
     this.startObstacleGeneration();
     this.startDebrisGeneration();
-  
   }
 
   gameLoop() {
@@ -55,16 +54,16 @@ class Game {
   //Controls player movement, object ineraction & scoring system
   update() {
     this.player.move();
-  
+
     // Update obstacles
     for (let i = this.obstacles.length - 1; i >= 0; i--) {
       const obstacle = this.obstacles[i];
       obstacle.move();
 
       // Avoid collision and handle game logic as before
-      if (obstacle.top > this.height) {
-        this.score += 10;
-        console.log("score:", this.score);
+      if (obstacle.left + obstacle.width < this.player.left && !this.player.didColide(obstacle)) {
+        this.score += 5;
+        console.log("score obstacles:", this.score);
         obstacle.element.remove();
         this.obstacles.splice(i, 1);
       }
@@ -120,7 +119,7 @@ class Game {
     this.livesElement.textContent = this.lives;
   }
 
-  endGame() {  
+  endGame() {
     // Clear obstacle and debris generation intervals
     clearInterval(this.obstacleGenerationInterval);
     clearInterval(this.debrisGenerationInterval);
@@ -131,7 +130,8 @@ class Game {
 
     this.gameIsOver = true;
 
-    this.gameScreen.style.display = "none";
+    this.gameContainer.style.display = "none";
+    this.gameStats.style.display = "block";  // added to display stats on end screen
     this.gameEndScreen.style.display = "block";
   }
 }
