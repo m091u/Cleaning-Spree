@@ -1,10 +1,10 @@
 class Obstacle {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    // dimensions and position 
+    // dimensions and position
     this.left = 1100;
-    this.top = Math.floor(Math.random() * 370);
-   
+    this.top = Math.floor(Math.random() * 310);
+
     this.width = 70;
     this.height = 70;
 
@@ -42,7 +42,7 @@ class Debris {
     this.gameScreen = gameScreen;
 
     this.left = 1200;
-    this.top = Math.floor(Math.random() * 370);
+    this.top = Math.floor(Math.random() * 310);
     this.width = 80;
     this.height = 80;
     this.element = document.createElement("img");

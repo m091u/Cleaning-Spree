@@ -25,7 +25,6 @@ body button {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  /* align-content: center; */
   height: 100vh;
   display: grid;
   place-items: center;
@@ -47,7 +46,7 @@ body button {
 }
 
 .emoji {
-font-size: 2em;
+  font-size: 2em;
 }
 
 .start-button {
@@ -61,13 +60,18 @@ font-size: 2em;
   margin-bottom: 20px;
 }
 
-/* adding section resulted in changes to the game screen with river moving at the top of screen */
-/* .stats { 
-  display: none;} */
+/* adding section resulted in changes to the game screen with river moving at the top of screen */ */
+.stats { 
+  display: none;
+}
 
-  /* display none added to container vs car game to game screen */
+h3 .score {
+  color: coral;
+  font-size: 1.5em;
+}
+/* display none added to container vs car game to game screen */
 .game-container {
-  display: none;   
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -79,11 +83,6 @@ font-size: 2em;
   color: rgb(4, 88, 4);
   font-size: 30px;
 }
-
-/* added to make stats show up on end */
-/* #stats{
-  display: none; 
-} */
 
 #game-screen {
   position: relative;
@@ -112,7 +111,6 @@ font-size: 2em;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-
 }
 
 .end-content {
@@ -129,12 +127,13 @@ font-size: 2em;
 }
 
 .cup {
-    display: inline-block;
-    animation: bounce 0.5s ease-in-out infinite;
+  display: inline-block;
+  animation: bounce 0.5s ease-in-out infinite;
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

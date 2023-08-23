@@ -4,7 +4,6 @@ class Game {
     this.gameContainer = document.querySelector("#game-container"); // added to set styling to container with none display
     this.gameScreen = document.querySelector("#game-screen");
     this.gameEndScreen = document.querySelector("#game-end");
-    this.gameStats = document.querySelector("#stats")
 
     this.player = new Player(
       this.gameScreen,
@@ -22,7 +21,9 @@ class Game {
     this.debris = [];
     this.score = 0;
     this.lives = 4;
-    this.scoreElement = document.querySelector("#score"); //added for score & lives
+
+    this.gameStats = document.querySelector(".stats");
+    this.scoreElement = document.querySelectorAll(".score"); //added for score & lives
     this.livesElement = document.querySelector("#lives"); //added for score & lives
     this.gameIsOver = false;
     this.obstacleGenerationInterval = 1200;
@@ -35,6 +36,7 @@ class Game {
     this.gameScreen.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
+    this.gameStats.style.display = "block";
     this.gameContainer.style.display = "flex"; //added to format game view to display both game screen & stats
 
     this.gameLoop();
@@ -61,9 +63,11 @@ class Game {
       obstacle.move();
 
       // Avoid collision and handle game logic as before
-      if (obstacle.left + obstacle.width < this.player.left && !this.player.didColide(obstacle)) {
+      if (
+        obstacle.left + obstacle.width < this.player.left &&
+        !this.player.didColide(obstacle)
+      ) {
         this.score += 5;
-        console.log("score obstacles:", this.score);
         obstacle.element.remove();
         this.obstacles.splice(i, 1);
       }
@@ -115,7 +119,8 @@ class Game {
 
   // Added for score & lives tracking
   updateScoreAndLives() {
-    this.scoreElement.textContent = this.score;
+    this.scoreElement[0].textContent = this.score;
+    this.scoreElement[1].textContent = this.score;
     this.livesElement.textContent = this.lives;
   }
 
@@ -130,8 +135,13 @@ class Game {
 
     this.gameIsOver = true;
 
+    this.gameScreen.style.display = "none";
     this.gameContainer.style.display = "none";
-    this.gameStats.style.display = "block";  // added to display stats on end screen
+    // added to display stats on end screen
     this.gameEndScreen.style.display = "block";
+    this.gameStats.style.display = "block";
+    this.scoreElement[0].textContent = this.score;
+    this.scoreElement[1].textContent = this.score;
+    console.log(this.score);
   }
 }
