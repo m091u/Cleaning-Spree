@@ -10,8 +10,8 @@ class Obstacle {
 
     this.element = document.createElement("img");
     const randomObstacle = [
-      "../images/Obstacle-swan.png",
-      "../images/Obstacle-duckpng.png",
+      "../images/Obstacle-swan-v1.png",
+      "../images/Obstacle-duck(v1).png",
     ];
     const randomChoice = Math.floor(Math.random() * randomObstacle.length);
     this.element.src = `${randomObstacle[randomChoice]}`;
@@ -49,7 +49,7 @@ class Debris {
 
     //Creates array of possible debris elements, then randomises
     const randomDebris = [
-      "../images/Debris-plastic-bag.png",
+      "../images/Debris-plasti-bag-v2.png",
       "../images/Debris-paper-coffee-cup.png",
       "../images/Debris-water-bottle.png",
     ];

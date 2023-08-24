@@ -34,7 +34,7 @@ body button {
   background-color: hsl(34, 78%, 91%, 0.8);
   width: 60%;
   padding: 5px;
-  color: darkgreen;
+  color: rgb(1, 80, 1);
   font-size: 25px;
   padding: 10px;
 }
@@ -67,7 +67,7 @@ body button {
 
 h3 .score {
   color: coral;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 /* display none added to container vs car game to game screen */
 .game-container {
@@ -80,7 +80,7 @@ h3 .score {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: rgb(4, 88, 4);
+  color: rgb(1, 80, 1);;
   font-size: 30px;
 }
 
@@ -105,7 +105,7 @@ h3 .score {
   display: none;
   font-size: 30px;
   height: 100vh;
-  color: darkgreen;
+  /* color: darkgreen; */
   position: relative;
   background-image: url(../images/Berlin-riverside.png);
   background-repeat: no-repeat;
@@ -117,7 +117,7 @@ h3 .score {
   background-color: hsl(34, 78%, 91%, 0.8);
   width: 60%;
   padding: 20px;
-  color: darkgreen;
+  color: rgb(1, 80, 1);
   font-size: 25px;
   line-height: 1.8em;
   position: absolute;
@@ -128,6 +128,7 @@ h3 .score {
 
 .cup {
   display: inline-block;
+  font-size: 1.5em;
   animation: bounce 0.5s ease-in-out infinite;
 }
 

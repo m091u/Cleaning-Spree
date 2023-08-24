@@ -135,13 +135,17 @@ class Game {
 
     this.gameIsOver = true;
 
-    this.gameScreen.style.display = "none";
+    // this.gameScreen.style.display = "none";
     this.gameContainer.style.display = "none";
-    // added to display stats on end screen
     this.gameEndScreen.style.display = "block";
     this.gameStats.style.display = "block";
     this.scoreElement[0].textContent = this.score;
     this.scoreElement[1].textContent = this.score;
-    console.log(this.score);
+
+    // Play the game over sound
+    const gameOverSound = document.getElementById("gameEndSound");
+
+      gameOverSound.play();
+
   }
 }
