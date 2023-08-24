@@ -124,6 +124,12 @@ class Game {
     this.livesElement.textContent = this.lives;
   }
 
+  //  playSound(){
+  //   for (let i=0; i<4; i++){
+  //     setInterval(()=>(this.gameOverSound.play()),500);
+  //   }
+  // }
+
   endGame() {
     // Clear obstacle and debris generation intervals
     clearInterval(this.obstacleGenerationInterval);
@@ -145,7 +151,6 @@ class Game {
     // Play the game over sound
     const gameOverSound = document.getElementById("gameEndSound");
 
-      gameOverSound.play();
-
+    gameOverSound.play();
   }
 }
