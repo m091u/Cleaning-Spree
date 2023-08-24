@@ -44,8 +44,11 @@ MVP definition here, list of minimum features
   - `move()`: Moves the obstacle elements horizontally
   - `updatePosition()`: Updates the position of the obstacle elements on the screen
 
-- `Script`: 
-
+- `Script`: Initialises a simple game interface and controls using JavaScript
+  - Game Initialization: When the webpage loads, the script sets up the game by obtaining references to the "Start" and "Restart" buttons and creating a new Game instance.
+  - Start Button Click: When the "Start" button is clicked, the startGame() function is triggered, which calls the start() method of the game instance.
+  - Keyboard Input Handling: When arrow keys are pressed:"ArrowUp" updates the player's upward movement and "ArrowDown" updates the player's downward movement. When arrow keys are released, player movement is reset.
+  - Restart Button Click: Clicking the "Restart" button triggers the function, which reloads the page to start a new game.
 
 
 ## States y States Transitions
@@ -53,12 +56,16 @@ MVP definition here, list of minimum features
 - **Game Screen**: Actual gameplay with player, debris, and obstacles
 - **Game Over Screen**: Displayed when lives run out, showing the player's score
 
+## Task
+- Set up project structure and basic HTML/CSS
+- Implement player movement and interactions
+- Create debris and obstacle classes
+- Develop game loop and scoring system
+- Implement lives system and Game Over logic
 
-Task
-List of tasks in order of priority
 
 ## Links
 [Trello Link](https://trello.com/b/rYRQoUv4/project1game)
 [Slides Link](https://docs.google.com/presentation/d/1_6UUthyYpogdkGGAO0O6pv0IqoGPnRxHuknZQHDL-ok/edit#slide=id.g27753e23bc7_0_103)
-[Github repository Link] (https://github.com/m091u/My_First_Game/tree/master)
-[Deployment Link]()
+[Github repository Link](https://github.com/m091u/My_First_Game/tree/master)
+[Deployment Link](https://m091u.github.io/My_First_Game/)
