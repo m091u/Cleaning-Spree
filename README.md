@@ -13,7 +13,7 @@ MVP definition here, list of minimum features
 - Scoring system tracks player's progress
 - Score is calculated based on the ammount of debris collected and obstacles avoided
 - Lives system tracks player's interaction with the obstacles
-- Game Over screen when lives run out
+- Game Over screen appears lives run out
 
 
 ## Backlog
@@ -44,7 +44,7 @@ MVP definition here, list of minimum features
   - `move()`: Moves the obstacle elements horizontally
   - `updatePosition()`: Updates the position of the obstacle elements on the screen
 
-- `Script` class: 
+- `Script`: 
 
 
 

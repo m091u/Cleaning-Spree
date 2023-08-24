@@ -11,7 +11,7 @@ class Game {
       170,
       90,
       90,
-      "../images/Player-bear-boat.png"
+      "./images/Player-bear-boat.png"
     );
 
     // game screen
