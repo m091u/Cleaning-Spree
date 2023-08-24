@@ -54,7 +54,6 @@ class Debris {
       "../images/Debris-water-bottle.png",
     ];
     const randomChoice = Math.floor(Math.random() * randomDebris.length);
-
     this.element.src = `${randomDebris[randomChoice]}`;
 
     this.element.style.position = "absolute";

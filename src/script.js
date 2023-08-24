@@ -16,7 +16,6 @@ window.onload = function () {
 
   // Handle Keyboard Input
   window.addEventListener("keydown", (event) => {
-    // console.log(event.key);
     event.preventDefault();
 
     switch (event.key) {
