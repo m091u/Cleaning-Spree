@@ -38,7 +38,7 @@ class Obstacle {
 }
 
 class Debris {
-  constructor(gameScreen) {
+  constructor(gameScreen) {   //initialize object properties
     this.gameScreen = gameScreen;
 
     this.left = 1200;
@@ -62,6 +62,7 @@ class Debris {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
 
+    //adds the img element to the game scren
     this.gameScreen.appendChild(this.element);
   }
 

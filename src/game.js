@@ -1,7 +1,7 @@
 class Game {
-  constructor() {
+  constructor() { // Initialize various game elements and properties
     this.startScreen = document.querySelector("#game-intro");
-    this.gameContainer = document.querySelector("#game-container"); // added to set styling to container with none display
+    this.gameContainer = document.querySelector("#game-container"); 
     this.gameScreen = document.querySelector("#game-screen");
     this.gameEndScreen = document.querySelector("#game-end");
 
@@ -23,8 +23,8 @@ class Game {
     this.lives = 4;
 
     this.gameStats = document.querySelector(".stats");
-    this.scoreElement = document.querySelectorAll(".score"); //added for score & lives
-    this.livesElement = document.querySelector("#lives"); //added for score & lives
+    this.scoreElement = document.querySelectorAll(".score"); 
+    this.livesElement = document.querySelector("#lives"); 
     this.gameIsOver = false;
     this.obstacleGenerationInterval = 1200;
     this.debrisGenerationInterval = 1300;
@@ -37,7 +37,7 @@ class Game {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.gameStats.style.display = "block";
-    this.gameContainer.style.display = "flex"; //added to format game view to display both game screen & stats
+    this.gameContainer.style.display = "flex"; 
 
     this.gameLoop();
     this.startObstacleGeneration();
@@ -74,7 +74,6 @@ class Game {
 
       if (this.player.didColide(obstacle)) {
         this.lives--;
-        console.log("lives:", this.lives);
         obstacle.element.remove();
         this.obstacles.splice(i, 1);
       }
@@ -135,7 +134,7 @@ class Game {
 
     this.gameIsOver = true;
 
-    // this.gameScreen.style.display = "none";
+  
     this.gameContainer.style.display = "none";
     this.gameEndScreen.style.display = "block";
     this.gameStats.style.display = "block";
