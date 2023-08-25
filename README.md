@@ -1,11 +1,10 @@
 ### Cleaning Spree
-## [Play the game!](link here)
+## [Play the game!](https://m091u.github.io/My_First_Game/)
 
 ## Description
 Spree Cleanup is an interactive web-based game that challenges players to clean up the Spree River by collecting debris and avoiding obstacles. The game aims to raise awareness about river pollution and encourage players to take action against it in real life.
 
 ## MVP
-MVP definition here, list of minimum features
 - Player character can move to collect debris by clicking `up` and `down` on the keyboard
 - Debris and obstacles move from right to left across the screen
 - Debris and obstacles appear from random locations and at a set interval
