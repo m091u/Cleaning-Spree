@@ -1,5 +1,5 @@
 ### Cleaning Spree
-## [Play the game!](https://m091u.github.io/My_First_Game/)
+## [Play the game!](https://cleaning-spree-game.netlify.app/)
 
 ## Description
 Spree Cleanup is an interactive web-based game that challenges players to clean up the Spree River by collecting debris and avoiding obstacles. The game aims to raise awareness about river pollution and encourage players to take action against it in real life.
