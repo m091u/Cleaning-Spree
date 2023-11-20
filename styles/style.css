@@ -104,8 +104,8 @@ h3 .score {
 #game-end {
   display: none;
 /*   changed */
-  font-size: 20px;
-  height: 100vh;
+  font-size: 16px;
+/*   height: 100vh; */
   /* color: darkgreen; */
   position: relative;
   background-image: url(../images/Berlin-riverside.png);
@@ -120,10 +120,10 @@ h3 .score {
   padding: 20px;
   color: rgb(1, 80, 1);
 /*   changed */
-  font-size: 25px;  
+  font-size: 20px;  
   height: 80%;
 /*    */
-  line-height: 1.6em;
+  line-height: 1.4em;
   position: absolute;
   top: 50%;
   left: 50%;
