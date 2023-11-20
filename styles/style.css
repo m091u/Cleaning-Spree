@@ -120,12 +120,10 @@ h3 .score {
   font-size: 1rem;  
   height: 80%;
   line-height: 1.4em;
-/*   position: absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); */
-    display: grid;
-  place-items: center;
+  transform: translate(-50%, -50%);
 }
 
 .cup {
